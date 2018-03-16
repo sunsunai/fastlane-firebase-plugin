@@ -11,7 +11,9 @@ module Fastlane
         #Select project
         project = manager.select_project(params[:project_number])
         project_number = project["projectNumber"]
-
+        
+        puts project_number
+        
         #Select client
         client = manager.select_client(project, params[:client_id])
         client_id = client["clientId"]
@@ -20,7 +22,7 @@ module Fastlane
         config = api.download_config_file(project_number, client_id)
         path = File.join(params[:output_path], params[:output_name] || config.filename)
         config.save!(path)
-
+        puts project_number
         UI.success "Successfuly saved config at #{path}"
       end
 
