@@ -45,7 +45,7 @@ module Fastlane
           end
           UI.crash! e.message
         end
-
+        puts client_id
         UI.success "Successfully uploaded certificate"
       end
 
